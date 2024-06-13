@@ -25,6 +25,8 @@ h1{
     width:calc(100%/10);
     height:calc(100%/10);
     border: 1px solid white;
+    align-content: center;
+    font-size: large;
 }
 
 .click{
@@ -37,3 +39,4 @@ h1{
 .hide{
     display: none;
 }
+
