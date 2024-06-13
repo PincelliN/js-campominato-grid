@@ -18,34 +18,58 @@ const Difficult=document.querySelector("select");
 
 WannaPlay.addEventListener("click",function () {
     
-    //dovendo creare più elementi utilizzo un ciclo for più indicato per valore di indice numerici
-    for (let index = 0; index < 100; index++) {
+     //aggiungo la classe hide al bottone
+     WannaPlay.classList.add("hide");   
+    //Rimuovo la classe hide alla tavola da gioco
+        Container.classList.remove("hide");
+   
+    let Cell=CreatElementsAndClass(0,100,"div","square");
+        //evento per i singoli click dei singoli box
+        
+         
+        console.log(Cell);
+        Cell.addEventListener("click",function () {
+              
+            Cell.classList.add("click");
+        })
+           
+       
+       
+    }
+    
+)
+
+
+
+//FUNZIONE
+
+
+//dovendo creare più elementi utilizzo un ciclo for più indicato per valore di indice numerici
+
+function CreatElementsAndClass(min,max,tag,classe) {
+  //dovendo creare più elementi utilizzo un ciclo for più indicato per valore di indice numerici
+  let cell;
+    for (let index = min; index < max; index++) {
         // variabili utilizata per i numeri che vanno inseriti nei box
         let element = index;
 
         console.log(element);
-        //Rimuovo la classe hide alla tavola da gioco
-        Container.classList.remove("hide");
-
+        
         //variabile future celle
-        const Box= document.createElement("div");
-
+         let Box= document.createElement(tag);
+       
         //aggiungo la classe con le caratteristiche delle celle
-        Box.classList.add("square");
+        Box.classList.add(classe);
+       
         //inserisco l'index al interno
         Box.append(index);
-        console.log(Box);
-        //evento per i singoli click dei singoli box
-        Box.addEventListener("click",function() {
-
-            this.classList.add("click");
-            
-        })
-
-           
-      
-        //stampo nel contenitore
-        Container.append(Box)  ;
+        
+        cell+=Box;
+        Container.appendChild(Box);
+     
     }
+      return cell
+}
+
+
     
-})
