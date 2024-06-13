@@ -3,3 +3,37 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+   background-color: red;
+  
+}
+#container{
+    margin: 0 auto;
+    text-align: center;
+}
+h1{
+    color: white;
+    padding: 5px;
+}
+#game-table{
+    margin: 10px auto;
+    width: 80%;
+    aspect-ratio: 1/1;
+    background-color: blue;
+}
+.square{
+    width:calc(100%/10);
+    height:calc(100%/10);
+    border: 1px solid white;
+}
+
+.click{
+    background-color: chartreuse;
+}
+.flex{
+   display: flex;
+    flex-wrap: wrap; 
+}
+.hide{
+    display: none;
+}
