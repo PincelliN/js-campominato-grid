@@ -28,14 +28,15 @@ WannaPlay.addEventListener("click",function () {
         Container.classList.remove("hide");
 
         // condizioni per i differenti valori di difficolta
-
+        
    if (Difficult==2) {
-    CreatElementsAndClass(0, 100, "div", "square", "veteran", "click");
+    CreatElementsAndClass(0, 100, "div", "square", "veteran", "boom","safe");
    } else if (Difficult ==1) {
-    CreatElementsAndClass(0, 81, "div", "square", "soldier", "click");
+    CreatElementsAndClass(0, 81, "div", "square", "soldier", "boom", "safe");
    } else {
-    CreatElementsAndClass(0, 49, "div", "square", "recluta", "click");
-   }    
+    CreatElementsAndClass(0, 49, "div", "square", "recluta", "boom", "safe");
+   }
+      
     }
     
 )
@@ -45,16 +46,43 @@ WannaPlay.addEventListener("click",function () {
 //FUNZIONE
 
 
+//Funzione genera numero da  a 
+function RandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+//funzione bombe
+function BoomNum(min,max) {
+    let Boom=[];
+        let i = min;
+        //creo un generatore di bnumeri rando
+        while (i< (Math.floor(max / 10))) {
+        Boom.push(RandomNumber(min,max));
+      console.log(RandomNumber);
+            i++; 
+            
+       
+
+            
+        }
+       console.log(Boom);
+        return Boom;
+}
+
+
 //dovendo creare più elementi utilizzo un ciclo for più indicato per valore di indice numerici
 
-function CreatElementsAndClass(min,max,tag,classe,classe2,classe3) {
+function CreatElementsAndClass(min,max,tag,classe,classe2,Boomclass,Safeclass) {
   //dovendo creare più elementi utilizzo un ciclo for più indicato per valore di indice numerici
-  
+   //Variabile numero Random
+    
+   let Boom = BoomNum(min,max)
+    
     for (let index = min; index < max; index++) {
         // variabili utilizata per i numeri che vanno inseriti nei box
         let element = index;
 
-        console.log(element);
+      
         
         //variabile future celle
          let Box= document.createElement(tag);
@@ -62,15 +90,23 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,classe3) {
         //aggiungo la classe con le caratteristiche delle celle
         Box.classList.add(classe ,classe2);
        
-        //inserisco l'index al interno
-        Box.append(index);
+
+       
+        
         // aggiungo un evento per aggiugere una seconda classe in caso di click
         Box.addEventListener("click",function () {
 
-                this.classList.add(classe3);
+               if (Boom.includes(index)) {
+                
+                Box.classList.add(Boomclass);
+                
+               }else{
+                Box.classList.add(Safeclass);
+               }
             
         })
-
+        //inserisco l'index al interno
+        Box.append(index);
        //stampo tutto
         Container.appendChild(Box);
      
