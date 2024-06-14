@@ -95,7 +95,9 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,Boomclass,Safeclass) {
         
         // aggiungo un evento per aggiugere una seconda classe in caso di click
         Box.addEventListener("click",function () {
-
+        //inserisco l'index al interno
+                Box.append(index);
+                console.log(index);
                if (Boom.includes(index)) {
                 
                 Box.classList.add(Boomclass);
@@ -105,8 +107,7 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,Boomclass,Safeclass) {
                }
             
         })
-        //inserisco l'index al interno
-        Box.append(index);
+        
        //stampo tutto
         Container.appendChild(Box);
      

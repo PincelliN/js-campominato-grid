@@ -62,11 +62,13 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,classe3) {
         //aggiungo la classe con le caratteristiche delle celle
         Box.classList.add(classe ,classe2);
        
-        //inserisco l'index al interno
-        Box.append(index);
+       
         // aggiungo un evento per aggiugere una seconda classe in caso di click
         Box.addEventListener("click",function () {
-
+       
+            //inserisco l'index al interno
+                Box.append(index);
+            console.log(index);
                 this.classList.add(classe3);
             
         })
