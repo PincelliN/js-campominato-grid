@@ -57,13 +57,12 @@ function BoomNum(min,max) {
         let i = min;
         //creo un generatore di bnumeri rando
         while (i< (Math.floor(max / 10))) {
-        Boom.push(RandomNumber(min,max));
-      console.log(RandomNumber);
-            i++; 
-            
-       
-
-            
+            let Nub =RandomNumber(min,max);
+            console.log(Nub);
+            if (Boom.includes(Nub)===false) {  
+             Boom.push(Nub);
+                i++;
+            }
         }
        console.log(Boom);
         return Boom;
@@ -94,9 +93,9 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,Boomclass,Safeclass) {
        
         
         // aggiungo un evento per aggiugere una seconda classe in caso di click
-        Box.addEventListener("click",function () {
+       Box.addEventListener("click",function () {
         //inserisco l'index al interno
-                Box.append(index);
+                Box.append(index + 1);
                 console.log(index);
                if (Boom.includes(index)) {
                 
@@ -105,7 +104,7 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,Boomclass,Safeclass) {
                }else{
                 Box.classList.add(Safeclass);
                }
-            
+           
         })
         
        //stampo tutto

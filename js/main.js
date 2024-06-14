@@ -67,7 +67,7 @@ function CreatElementsAndClass(min,max,tag,classe,classe2,classe3) {
         Box.addEventListener("click",function () {
        
             //inserisco l'index al interno
-                Box.append(index);
+                Box.append(index + 1);
             console.log(index);
                 this.classList.add(classe3);
             
